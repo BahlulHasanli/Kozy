@@ -1,0 +1,24 @@
+{
+  "name": "kozy",
+  "version": "1.0.0",
+  "description": "Next 13 FormData image upload tool via API route",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BahlulHasanli/kozy.git"
+  },
+  "keywords": [
+    "next13",
+    "kozy",
+    "imageupload"
+  ],
+  "author": "Bahlul Hasanli",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BahlulHasanli/kozy/issues"
+  },
+  "homepage": "https://github.com/BahlulHasanli/kozy#readme"
+}
