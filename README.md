@@ -17,7 +17,7 @@ export async function POST(req: NextRequest, res: NextResponse) {
 
   const uploaded: any = await UploadImage({
     file,
-    folder: 'uplods',
+    folder: 'uploads',
     name: `hello_world`,
     size: '2 MB',
   });
