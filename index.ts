@@ -15,6 +15,16 @@ export async function UploadImage({
   name: string;
   size: string;
 }) {
+  if (!file || !file.stream || !file.stream()) {
+    return Promise.reject('No file stream or error occurred');
+  } else if (!name) {
+    return Promise.reject('File name unknown');
+  } else if (!folder) {
+    return Promise.reject('Invalid folder');
+  } else if (!file.type.startsWith('image')) {
+    return Promise.reject('Invalid file format');
+  }
+
   const READER = file.stream().getReader();
   const MIME_TYPE: string = file.type.split('/')[1];
   const DIR = path.join(process.cwd(), 'public', folder);
@@ -28,16 +38,6 @@ export async function UploadImage({
     const filePath = path.join(DIR, fileName);
 
     if (!checkFolder) await mkdir(DIR);
-
-    if (!file.type.startsWith('image')) {
-      return reject('File format error!');
-    }
-
-    const maxSize = parseFileSize(size);
-
-    if (file.size > maxSize) {
-      return reject('File size error!');
-    }
 
     while (true) {
       const { done, value } = await READER.read();
@@ -59,6 +59,6 @@ export async function UploadImage({
       });
     }
 
-    return reject('File uploaded error!');
+    return reject('File upload is incorrect');
   });
 }
